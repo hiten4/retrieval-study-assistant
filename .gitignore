@@ -1,0 +1,68 @@
+# ----------------------
+# Virtual Environment
+# ----------------------
+venv/
+env/
+ENV/
+.pyenv/
+
+# Also ignore venv config file
+pyvenv.cfg
+
+# ----------------------
+# Python Cache
+# ----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------
+# Environment variables
+# ----------------------
+.env
+.env.*
+
+# ----------------------
+# Data files
+# ----------------------
+# IMPORTANT: case-sensitive (your folder is "Data", not "data")
+Data/Raw/*.pdf
+Data/Processed/
+
+# Optional: ignore ALL data (uncomment if needed)
+# Data/
+
+# ----------------------
+# Jupyter
+# ----------------------
+.ipynb_checkpoints/
+
+# ----------------------
+# IDE / Editor
+# ----------------------
+.vscode/
+.idea/
+
+# ----------------------
+# OS files
+# ----------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------
+# Build / Packaging
+# ----------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ----------------------
+# Logs
+# ----------------------
+*.log
+
+# ----------------------
+# Misc
+# ----------------------
+*.sqlite3
