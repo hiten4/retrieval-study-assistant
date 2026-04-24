@@ -1,14 +1,12 @@
 import re
 
-
 class Chunker:
-    def __init__(self, text, chunk_size=300, overlap=50):
+    def __init__(self, text, chunk_size=200, overlap=50):
         self.text = text
         self.chunk_size = chunk_size
         self.overlap = overlap
 
     def split_sentences(self):
-        # split into sentences
         sentences = re.split(r'(?<=[.!?])\s+', self.text)
         return sentences
 
@@ -17,22 +15,19 @@ class Chunker:
 
         chunks = []
         current_chunk = []
-        current_length = 0
 
         for sentence in sentences:
             words = sentence.split()
-            length = len(words)
 
-            if current_length + length > self.chunk_size:
+            # if adding sentence exceeds chunk size → save chunk
+            if len(current_chunk) + len(words) > self.chunk_size:
                 chunks.append(" ".join(current_chunk))
 
-                # overlap handling
-                overlap_words = current_chunk[-self.overlap:] if len(current_chunk) > self.overlap else current_chunk
+                # overlap handling (last N words)
+                overlap_words = current_chunk[-self.overlap:]
                 current_chunk = overlap_words.copy()
-                current_length = len(current_chunk)
 
             current_chunk.extend(words)
-            current_length += length
 
         if current_chunk:
             chunks.append(" ".join(current_chunk))
