@@ -2,7 +2,7 @@ import ollama
 
 
 class LLMGenerator:
-    def __init__(self, model_name="llama3"):
+    def __init__(self, model_name):
         self.model = model_name
 
     def generate(self, question, context):

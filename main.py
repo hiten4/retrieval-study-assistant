@@ -24,7 +24,7 @@ chunks = chunker.create_chunks()
 
 # ── Retriever + Generator ────────────────────────────────────────────────────
 retriever = BM25Retriever(chunks)
-generator = LLMGenerator(model_name="llama3")
+generator = LLMGenerator(model_name="phi3")
 
 
 def answer(question: str):
@@ -34,12 +34,21 @@ def answer(question: str):
     return ans, retrieved
 
 
-# ── Test ─────────────────────────────────────────────────────────────────────
-if __name__ == "__main__":
-    q = "What is Force?"
-    ans, ctx = answer(q)
+#── Test ─────────────────────────────────────────────────────────────────────
+# if __name__ == "__main__":
+#     q = "What is Force?"
+#     ans, ctx = answer(q)
 
-    print("Answer:", ans)
-    print("\n--- Retrieved Chunks ---")
-    for i, chunk in enumerate(ctx, 1):
-        print(f"\n[{i}] {chunk[:200]}...")
+#     print("Answer:", ans)
+#     print("\n--- Retrieved Chunks ---")
+#     for i, chunk in enumerate(ctx, 1):
+#         print(f"\n[{i}] {chunk[:200]}...")
+
+# if __name__ == "__main__":
+#     while True:
+#         q = input("\nAsk (or type 'exit'): ")
+#         if q.lower() == "exit":
+#             break
+
+#         ans, ctx = answer(q)
+#         print("\nAnswer:", ans)

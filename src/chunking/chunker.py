@@ -1,7 +1,7 @@
 import re
 
 class Chunker:
-    def __init__(self, text, chunk_size=200, overlap=50):
+    def __init__(self, text, chunk_size, overlap):
         self.text = text
         self.chunk_size = chunk_size
         self.overlap = overlap
